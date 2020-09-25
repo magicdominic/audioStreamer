@@ -2,10 +2,15 @@
 Description=Play audio over rtsp network stream. 
 Wants=network-online.target
 After=network.target network-online.target rc-local.service
+
 [Service]
-ExecStart=ffplay rtsp://192.168.0.12:554/audio -nodisp
+ExecStart=flask run --host=0.0.0.0
+WorkingDirectory=/home/pi/audioStreamer/
+
+#ExecStart=ffplay rtsp://192.168.0.12:554/audio -nodisp
 #ExecStart=cvlc rtsp://192.168.0.216:554/audio
 #ExecStart=/usr/bin/omxplayer --live -s --vol -600 --audio_fifo 2 --timeout 3 --avdict "rtsp_transport:tcp" rtsp://192.168.0.216:554/audio 
+
 StandardOutput=inherit
 StandardError=inherit
 Restart=always
