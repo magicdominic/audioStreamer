@@ -17,7 +17,7 @@ Restart=always
 RestartSec=1
 DefaultStartLimitIntervalSec=0
 StartLimitBurst=99
-RuntimeMaxSec=600
+RuntimeMaxSec=100000
 User=pi
 [Install]
 WantedBy=multi-user.target
